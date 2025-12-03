@@ -499,6 +499,10 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.auto_awesome_outlined, size: 30),
+      ),
     );
   }
 }

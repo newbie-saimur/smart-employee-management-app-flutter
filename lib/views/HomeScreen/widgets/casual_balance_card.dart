@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:smart_employee_management/utils/colors.dart';
+import 'package:smart_employee_management/views/LeaveApplication/leave_application_step_one.dart';
 import 'package:smart_employee_management/widgets/custom_button.dart';
 
 class CasualBalanceCard extends StatelessWidget {
@@ -54,7 +57,10 @@ class CasualBalanceCard extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 20),
-                CustomButton(title: "+ Apply for Leave"),
+                CustomButton(
+                  title: "+ Apply for Leave",
+                  onTap: () => Get.to(LeaveApplicationStepOne()),
+                ),
               ],
             ),
           ),

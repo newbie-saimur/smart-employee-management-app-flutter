@@ -8,15 +8,15 @@ class PendingApprovals extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Color color = data['requestType'] == "General Request"
-        ? Color(0xFFFBC02D)
+        ? Color(0xFF2979FF)
         : data['requestType'] == "Pay Slip Access"
         ? Color(0xFF4CAF50)
-        : Color(0xFF2979FF);
+        : Color(0xFFFBC02D);
     final IconData icon = data['requestType'] == "General Request"
-        ? Icons.flight_takeoff
+        ? Icons.construction
         : data['requestType'] == "Pay Slip Access"
         ? Icons.attach_money
-        : Icons.construction;
+        : Icons.flight_takeoff;
 
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12),
