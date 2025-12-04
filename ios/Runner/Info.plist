@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>NSFaceIDUsageDescription</key>
-	<string>We need Face ID to authenticate you</string>
+	<string>We need to authenticate you using Face ID</string>
 	<key>CFBundleDisplayName</key>
 	<string>Smart Employee Management</string>
 	<key>CFBundleExecutable</key>

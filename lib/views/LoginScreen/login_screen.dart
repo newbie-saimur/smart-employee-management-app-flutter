@@ -38,7 +38,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 child: SvgPicture.asset(
                   'assets/svg/hexagon.svg',
-                  color: Colors.white,
+                  colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
                 ),
               ),
               SizedBox(height: 16),
@@ -223,10 +223,7 @@ class LoginScreen extends StatelessWidget {
                   padding: EdgeInsets.all(6),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    border: BoxBorder.all(
-                      width: 3,
-                      color: AppColors.borderColor,
-                    ),
+                    border: Border.all(width: 3, color: AppColors.borderColor),
                   ),
                   child: Icon(
                     Icons.fingerprint,
