@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:smart_employee_management/views/LeaveApplication/leave_application_step_one.dart';
 import 'package:smart_employee_management/views/LeaveApplication/leave_application_step_three.dart';
 import 'package:smart_employee_management/views/LeaveApplication/leave_application_step_two.dart';
 
@@ -11,20 +10,16 @@ class LeaveApplicationController extends GetxController {
 
   nextStep() {
     if (currentStep.value == 1) {
-      Get.to(LeaveApplicationStepTwo());
-    } else {
-      Get.to(LeaveApplicationStepThree());
+      currentStep.value = 2;
+      Get.to(() => LeaveApplicationStepTwo());
+    } else if (currentStep.value == 2) {
+      currentStep.value = 3;
+      Get.to(() => LeaveApplicationStepThree());
     }
-    currentStep.value = currentStep.value + 1;
   }
 
   previousStep() {
-    if (currentStep.value == 3) {
-      Get.to(LeaveApplicationStepTwo());
-    } else {
-      Get.to(LeaveApplicationStepOne());
-    }
-    currentStep.value = currentStep.value - 1;
+    Get.back();
   }
 
   makeSelected(String type, String title) {
@@ -68,6 +63,7 @@ class LeaveApplicationController extends GetxController {
 
   // Calculation Logic
   bool validateDuration(int balanceLeft) {
+    durationDays.value = 999;
     if (selectedStartDate.value != null && selectedEndDate.value != null) {
       final start = DateTime(
         selectedStartDate.value!.year,
@@ -81,15 +77,13 @@ class LeaveApplicationController extends GetxController {
       );
 
       final Duration difference = end.difference(start);
-      int days = difference.inDays + 1;
-
-      if (days > 0 && durationDays.value <= balanceLeft) {
-        durationDays.value = days;
-        return true;
-      }
+      durationDays.value = difference.inDays + 1;
     }
-
-    return false;
+    if (durationDays.value <= balanceLeft) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   // Application Step 2 Controller

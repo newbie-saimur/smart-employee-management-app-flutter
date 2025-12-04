@@ -12,112 +12,117 @@ class LeaveApplicationStepTwo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final LeaveApplicationController controller = Get.put(
-      LeaveApplicationController(),
-    );
+    final LeaveApplicationController controller =
+        Get.find<LeaveApplicationController>();
 
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                AppBar(
-                  leading: GestureDetector(
-                    onTap: () => Get.to(NavBarView()),
-                    child: Icon(
-                      Icons.close_rounded,
-                      color: AppColors.secondaryTextColor,
-                    ),
-                  ),
-                  title: Column(
-                    spacing: 4,
-                    children: [
-                      Text(
-                        "New Request",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                        ),
+    return PopScope(
+      canPop: true,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) {
+          controller.currentStep.value = 1;
+        }
+      },
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.all(12),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  AppBar(
+                    leading: GestureDetector(
+                      onTap: () => Get.to(NavBarView()),
+                      child: Icon(
+                        Icons.close_rounded,
+                        color: AppColors.secondaryTextColor,
                       ),
-                      Obx(() {
-                        var stepNo = controller.currentStep.value;
-                        return Text(
-                          "Step $stepNo of 3",
+                    ),
+                    title: Column(
+                      spacing: 4,
+                      children: [
+                        Text(
+                          "New Request",
                           style: TextStyle(
-                            color: AppColors.secondaryTextColor,
-                            fontSize: 12,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
                           ),
-                        );
-                      }),
-                    ],
+                        ),
+                        Obx(() {
+                          return Text(
+                            "Step ${controller.currentStep.value} of 3",
+                            style: TextStyle(
+                              color: AppColors.secondaryTextColor,
+                              fontSize: 12,
+                            ),
+                          );
+                        }),
+                      ],
+                    ),
+                    centerTitle: true,
                   ),
-                  centerTitle: true,
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Obx(() {
-                    var stepNo = controller.currentStep.value;
-                    var size = MediaQuery.sizeOf(context).width;
-                    size = stepNo == 1
-                        ? size * 0.33
-                        : stepNo == 2
-                        ? size * 0.66
-                        : size;
-                    return AnimatedContainer(
-                      duration: Duration(seconds: 1),
-                      curve: Curves.easeInOut,
-                      height: 4,
-                      width: size,
-                      decoration: BoxDecoration(
-                        color: AppColors.primaryColor,
-                        borderRadius: BorderRadius.circular(2),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Obx(() {
+                      var size = MediaQuery.sizeOf(context).width;
+                      size = controller.currentStep.value == 1
+                          ? size * 0.33
+                          : controller.currentStep.value == 2
+                          ? size * 0.66
+                          : size;
+                      return AnimatedContainer(
+                        duration: Duration(seconds: 1),
+                        curve: Curves.easeInOut,
+                        height: 4,
+                        width: size,
+                        decoration: BoxDecoration(
+                          color: AppColors.primaryColor,
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                      );
+                    }),
+                  ),
+                  SizedBox(height: 20),
+
+                  // Reason Section
+                  _buildReasonSection(controller),
+                  SizedBox(height: 30),
+
+                  // Handover Section
+                  _buildHandoverSection(controller),
+                  SizedBox(height: 30),
+                ],
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    flex: 2,
+                    child: CustomButton(
+                      title: "Back",
+                      onTap: () => controller.previousStep(),
+                      color: AppColors.primaryTextColor,
+                      backgroundColor: AppColors.secondaryTextColor.withValues(
+                        alpha: 0.3,
                       ),
-                    );
-                  }),
-                ),
-                SizedBox(height: 20),
-
-                // Reason Section
-                _buildReasonSection(controller),
-                SizedBox(height: 30),
-
-                // Handover Section
-                _buildHandoverSection(controller),
-                SizedBox(height: 30),
-              ],
-            ),
-            Row(
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: CustomButton(
-                    title: "Back",
-                    onTap: () => controller.previousStep(),
-                    color: AppColors.primaryTextColor,
-                    backgroundColor: AppColors.secondaryTextColor.withValues(
-                      alpha: 0.3,
                     ),
                   ),
-                ),
-                SizedBox(width: 8),
-                Expanded(
-                  flex: 5,
-                  child: CustomButton(
-                    title: "Next Step",
-                    onTap: () {
-                      if (controller.isStep2Valid.value) {
-                        controller.nextStep();
-                      }
-                    },
+                  SizedBox(width: 8),
+                  Expanded(
+                    flex: 5,
+                    child: CustomButton(
+                      title: "Next Step",
+                      onTap: () {
+                        if (controller.isStep2Valid.value) {
+                          controller.nextStep();
+                        }
+                      },
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
