@@ -32,6 +32,7 @@ migrate_working_dir/
 .pub/
 /build/
 /coverage/
+/ui_in_html/
 
 # Symbolication related
 app.*.symbols
