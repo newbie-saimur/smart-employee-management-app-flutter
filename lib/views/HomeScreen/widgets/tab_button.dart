@@ -21,6 +21,7 @@ class TabButton extends StatelessWidget {
             : tabController.activeUpNext(),
         child: Container(
           padding: EdgeInsets.only(bottom: 4),
+          margin: EdgeInsets.only(bottom: 5),
           decoration: BoxDecoration(
             border: Border(
               bottom: BorderSide(

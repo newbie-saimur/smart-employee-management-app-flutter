@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:smart_employee_management/utils/colors.dart';
+import 'package:smart_employee_management/views/AttendanceScreen/attendance_screen.dart';
+import 'package:smart_employee_management/views/HomeScreen/home_screen.dart';
+import 'package:smart_employee_management/views/PaySlipScreen/payslip_screen.dart';
+import 'package:smart_employee_management/views/StaffDirectory/staff_directory.dart';
 
 class DashboardQuickAccess extends StatelessWidget {
   const DashboardQuickAccess({super.key});
@@ -30,30 +35,41 @@ class DashboardQuickAccess extends StatelessWidget {
       ),
       itemBuilder: (context, index) {
         final data = quickAccessItems[index];
-        return Column(
-          children: [
-            Container(
-              padding: EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(16),
-                boxShadow: [
-                  BoxShadow(
-                    blurStyle: BlurStyle.outer,
-                    color: Colors.black12,
-                    blurRadius: 0.5,
-                    spreadRadius: 0.5,
-                  ),
-                ],
+        return GestureDetector(
+          onTap: () {
+            data['title'] == "Directory"
+                ? Get.to(StaffDirectory())
+                : data['title'] == "Payslip"
+                ? Get.to(PayslipScreen())
+                : data['title'] == "Attend."
+                ? Get.to(AttendanceScreen())
+                : null;
+          },
+          child: Column(
+            children: [
+              Container(
+                padding: EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: [
+                    BoxShadow(
+                      blurStyle: BlurStyle.outer,
+                      color: Colors.black12,
+                      blurRadius: 0.5,
+                      spreadRadius: 0.5,
+                    ),
+                  ],
+                ),
+                child: Icon(data['img'], color: data['color'], size: 24),
               ),
-              child: Icon(data['img'], color: data['color'], size: 24),
-            ),
-            SizedBox(height: 6),
-            Text(
-              data['title'],
-              style: TextStyle(color: AppColors.secondaryTextColor),
-            ),
-          ],
+              SizedBox(height: 6),
+              Text(
+                data['title'],
+                style: TextStyle(color: AppColors.secondaryTextColor),
+              ),
+            ],
+          ),
         );
       },
     );
