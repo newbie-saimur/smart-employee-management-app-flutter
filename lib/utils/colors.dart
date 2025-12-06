@@ -8,4 +8,5 @@ class AppColors {
   static const Color borderColor = Color(0xFFE2E8F0);
   static const Color hintTextColor = Color(0xFFA1A3BF);
   static const Color backgroundColor = Color(0xFFF8FAFC);
+  static const Color cardBackgroundColor = Color(0xFF1E293B);
 }

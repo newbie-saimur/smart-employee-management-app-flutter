@@ -1,7 +1,6 @@
 # Smart Employee Management
 
-> [!NOTE]
-> **📱 Android & iOS Only** - This application is designed for mobile devices.
+> [!NOTE] > **📱 Android & iOS Only** - This application is designed for mobile devices.
 
 A comprehensive employee management system built with Flutter for managing HR operations, attendance tracking, leave requests, payroll, and employee communications.
 
@@ -128,7 +127,7 @@ Smart Employee Management is a full-featured mobile application that streamlines
 ### Attendance & Leave Management
 
 <p align="center">
-  <img src="screenshot_of_ui/attendance_screen.png" alt="Attendance" width="250"/>
+  <img src="screenshot_of_ui/attendance.png" alt="Attendance" width="250"/>
   <img src="screenshot_of_ui/leave_application_step_1.png" alt="Leave Request Step 1" width="250"/>
   <img src="screenshot_of_ui/leave_application_step_2.png" alt="Leave Request Step 2" width="250"/>
 </p>

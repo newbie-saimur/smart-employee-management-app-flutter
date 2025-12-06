@@ -18,7 +18,7 @@ class CasualBalanceCard extends StatelessWidget {
           Container(
             padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
             decoration: BoxDecoration(
-              color: Color(0xFF1E293B),
+              color: AppColors.cardBackgroundColor,
               borderRadius: BorderRadius.circular(20),
             ),
             child: Column(
