@@ -1,4 +1,3 @@
-import 'package:flutter/widgets.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
@@ -197,7 +196,6 @@ class PdfGenerator {
         filename: 'Payslip_${fileName.replaceAll(' ', '_')}.pdf',
       );
     } catch (e) {
-      print('Error saving PDF: $e');
       rethrow;
     }
   }

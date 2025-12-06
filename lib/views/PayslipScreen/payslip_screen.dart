@@ -359,7 +359,10 @@ class PayslipScreen extends StatelessWidget {
                                 children: [
                                   SvgPicture.asset(
                                     'assets/svg/taka.svg',
-                                    color: Colors.white,
+                                    colorFilter: ColorFilter.mode(
+                                      Colors.white,
+                                      BlendMode.srcIn,
+                                    ),
                                     height: 40,
                                   ),
                                   Text(

@@ -83,7 +83,7 @@ class CasualBalanceCard extends StatelessWidget {
                 ),
                 child: SvgPicture.asset(
                   'assets/svg/pie-chart.svg',
-                  color: Colors.white,
+                  colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
                 ),
               ),
             ),

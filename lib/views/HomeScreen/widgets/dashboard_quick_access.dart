@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smart_employee_management/utils/colors.dart';
 import 'package:smart_employee_management/views/AttendanceScreen/attendance_screen.dart';
-import 'package:smart_employee_management/views/HomeScreen/home_screen.dart';
 import 'package:smart_employee_management/views/PaySlipScreen/payslip_screen.dart';
 import 'package:smart_employee_management/views/StaffDirectory/staff_directory.dart';
 
