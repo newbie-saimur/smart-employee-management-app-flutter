@@ -36,7 +36,7 @@ class CasualBalanceCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      "07",
+                      "10",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 32,

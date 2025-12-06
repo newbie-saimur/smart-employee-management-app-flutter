@@ -16,6 +16,7 @@ class LeaveApplicationStepOne extends StatelessWidget {
   Widget build(BuildContext context) {
     final LeaveApplicationController controller = Get.put(
       LeaveApplicationController(),
+      permanent: true,
     );
 
     final List<Map> leaveTypes = [
@@ -76,9 +77,8 @@ class LeaveApplicationStepOne extends StatelessWidget {
                         ),
                       ),
                       Obx(() {
-                        var stepNo = controller.currentStep.value;
                         return Text(
-                          "Step $stepNo of 3",
+                          "Step ${controller.currentStep.value} of 3",
                           style: TextStyle(
                             color: AppColors.secondaryTextColor,
                             fontSize: 12,
@@ -92,11 +92,10 @@ class LeaveApplicationStepOne extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Obx(() {
-                    var stepNo = controller.currentStep.value;
                     var size = MediaQuery.sizeOf(context).width;
-                    size = stepNo == 1
+                    size = controller.currentStep.value == 1
                         ? size * 0.33
-                        : stepNo == 2
+                        : controller.currentStep.value == 2
                         ? size * 0.66
                         : size;
                     return AnimatedContainer(
@@ -187,14 +186,13 @@ class LeaveApplicationStepOne extends StatelessWidget {
                   child: CustomButton(
                     title: "Next Step",
                     onTap: () {
-                      var type = controller.selectedType.value;
-                      var index = type == "CL"
-                          ? 0
-                          : type == "SL"
-                          ? 1
-                          : 2;
-                      int balanceLeft = leaveTypes[index]['balance'];
-                      bool valid = controller.validateDuration(balanceLeft);
+                      bool valid = controller.validateDuration(
+                        leaveTypes[controller.selectedType.value == "CL"
+                            ? 0
+                            : controller.selectedType.value == "SL"
+                            ? 1
+                            : 2]['balance'],
+                      );
                       if (valid) {
                         controller.nextStep();
                       }
