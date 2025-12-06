@@ -248,7 +248,7 @@ class PayslipScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            spacing: 20,
+            spacing: 16,
             children: [
               Obx(() {
                 var currentMonth = payslipController.monthIndex.value;
@@ -257,7 +257,7 @@ class PayslipScreen extends StatelessWidget {
                 final Map<String, dynamic> deductionsData = data['deductions'];
 
                 return Column(
-                  spacing: 20,
+                  spacing: 16,
                   children: [
                     // Navigation Month Section
                     Container(
@@ -437,7 +437,7 @@ class PayslipScreen extends StatelessWidget {
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        spacing: 12,
+                        spacing: 10,
                         children: [
                           Text(
                             "Earnings",
@@ -506,7 +506,7 @@ class PayslipScreen extends StatelessWidget {
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        spacing: 12,
+                        spacing: 10,
                         children: [
                           Text(
                             "DEDUCTIONS",

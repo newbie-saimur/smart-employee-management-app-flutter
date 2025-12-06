@@ -433,7 +433,7 @@ class HomeScreen extends StatelessWidget {
     final tabController = Get.put(DashboardTaskTabController());
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.only(left: 16, right: 16, top: 50),
+        padding: EdgeInsets.only(left: 16, right: 16, top: 40),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
