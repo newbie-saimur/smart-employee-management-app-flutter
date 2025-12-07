@@ -1,98 +1,122 @@
 # Smart Employee Management
 
-> [!WARNING] > **🚧 UNDER DEVELOPMENT** - This project is currently being developed as part of my academic lab project for the Mobile Application Design course. The complete source code will be uploaded after the final evaluation of the lab project.
+> [!NOTE]
+> **📱 Android & iOS Only** - This application is designed for mobile devices.
 
-> [!IMPORTANT] > **📱 MOBILE ONLY** - This application is designed and optimized exclusively for **Android and iOS mobile devices**. Desktop and web platforms are not supported.
-
-A comprehensive employee management system built with Flutter as part of my Mobile Application Design course lab project.
+A comprehensive employee management system built with Flutter for managing HR operations, attendance tracking, leave requests, payroll, and employee communications.
 
 ## 📱 About
 
-This application provides a complete solution for managing employee-related tasks including attendance tracking, leave management, messaging, payroll, and more. The app features a modern, intuitive UI with biometric authentication support and is fully responsive across different mobile screen sizes.
+Smart Employee Management is a full-featured mobile application that streamlines HR and employee management tasks. Built with Flutter and GetX for state management, it provides an intuitive interface for employees to manage their work-related activities including attendance tracking, leave applications, payroll viewing, staff directory access, and internal messaging.
 
 ## ✨ Features
 
--   **Authentication**
+### 🔐 Authentication
 
-    -   Secure login with Employee ID/Email and Password
-    -   Biometric authentication (Face ID/Fingerprint)
-    -   Remember me functionality
+-   Employee ID/Email and password login
+-   Biometric authentication (Fingerprint/Face ID)
 
--   **Dashboard**
+### 🏠 Dashboard
 
-    -   Personalized greeting with user name
-    -   Leave balance overview
-    -   Quick access to key features (Directory, Payslip, Attendance, More)
-    -   Upcoming tasks and events
-    -   System notifications and alerts
+-   Personalized greetings with employee name
+-   Casual leave balance overview with visual indicators
+-   Quick access shortcuts (Directory, Payslip, Attendance)
+-   Upcoming events and tasks timeline
+-   My tasks with priority indicators
+-   System notifications and alerts
+-   Pending approvals tracking
 
--   **Attendance Management**
+### 📅 Attendance Management
 
-    -   Biometric clock-in/clock-out
-    -   Location-based perimeter tracking
-    -   Real-time attendance status (Present, Late, Absent)
-    -   Historical attendance logs
-    -   Monthly attendance overview
+-   Daily attendance tracking
+-   Monthly attendance overview
+-   Real-time status indicators (Present, Late, Absent)
+-   Historical attendance records
+-   Location-based check-in visualization
 
--   **Leave Management**
+### 🏖️ Leave Management
 
-    -   Multiple leave types (Casual, Sick, Emergency)
-    -   Multi-step leave request process
-    -   Leave balance tracking
-    -   Reason and handover task specification
-    -   Approval workflow with manager assignment
+-   Multi-step leave application process
+-   Three leave types: Casual, Sick, Emergency
+-   Date range selection with calendar picker
+-   Leave reason and description
+-   Task handover to colleagues
+-   Manager approval workflow
+-   Leave balance tracking
+-   Confirmation notifications
 
--   **Messaging System**
+### 💰 Payroll System
 
-    -   Group and direct messaging
-    -   Unread conversation notifications
-    -   File attachments support (PDF, etc.)
-    -   Message search functionality
-    -   Pinned conversations
+-   Monthly salary slips
+-   Detailed earnings breakdown:
+    -   Basic Salary
+    -   House Rent Allowance
+    -   Medical Allowance
+    -   Conveyance
+-   Deductions display:
+    -   Tax (TDS)
+    -   Provident Fund
+-   Net pay calculation
+-   Month-wise navigation
+-   PDF generation and sharing
+-   Download payslip functionality
 
--   **Payroll**
+### 👥 Staff Directory
 
-    -   Detailed salary slips with PDF generation
-    -   Earnings breakdown (Basic Salary, House Rent, Medical Allowance, Conveyance)
-    -   Deductions display (Tax, Provident Fund)
-    -   Monthly net pay calculation
-    -   Downloadable/Shareable payslips in PDF format
-    -   Month-wise navigation for historical payslips
+-   Complete employee directory
+-   Department-wise filtering (Engineering, Design, Marketing, HR)
+-   Search functionality
+-   Employee contact details
+-   Direct call, email, and chat options
+-   Employee profile viewing
+-   Organizational hierarchy
 
--   **Staff Directory**
+### 🔔 Notifications
 
-    -   Searchable employee list
-    -   Department-wise filtering (Engineering, Design, Marketing, HR)
-    -   Contact information (Call, Email, Chat)
-    -   Employee role and details
-
--   **Notifications**
-
-    -   My Alerts and Notice Board
-    -   Critical alerts (Server Maintenance, etc.)
+-   Dual notification system:
+    -   My Alerts (personal notifications)
+    -   Notice Board (company-wide announcements)
+-   Categorized notifications:
+    -   Critical alerts (server maintenance, system updates)
     -   HR policy updates
     -   Event notifications with attachments
-    -   Leave approval notifications
+    -   Leave approvals/rejections
     -   Login attempt tracking
+-   Real-time notification badges
 
--   **Profile Management**
+### 💬 Messaging (UI Only)
 
-    -   Personal information
-    -   Job details (Department, Reporting Manager, Desk Location)
-    -   Contact information
-    -   Security settings (Password, Biometrics)
-    -   App preferences
+-   Direct and group messaging interface
+-   Unread conversation indicators
+-   File attachment support (PDF, documents)
+-   Message search functionality
+-   Pinned conversations
+-   Chat history
 
--   **Knowledge Base**
-    -   Training modules with progress tracking
-    -   Document library (Employee Handbook, Insurance Policy, API Documentation)
-    -   Category-based document organization
-    -   Resume functionality for ongoing training
+### 👤 Profile Management
+
+-   Personal information display
+-   Work information:
+    -   Department
+    -   Reporting manager
+    -   Desk location
+    -   Employee ID
+-   Contact details (phone, email)
+-   Security settings
+-   Notification preferences
+
+### 📚 Knowledge Base (UI Only)
+
+-   Training modules with progress tracking
+-   Document library:
+    -   Employee Handbook
+    -   Insurance Policy
+    -   API Documentation
+-   Category-based organization (General, Legal, Engineering)
+-   Document download functionality
+-   Resume training functionality
 
 ## 🎨 UI Screenshots
-
-> [!NOTE]
-> The Flutter implementation is completed with fully functional features including state management, responsive design, and PDF generation capabilities.
 
 ### Authentication & Dashboard
 
@@ -142,99 +166,190 @@ This application provides a complete solution for managing employee-related task
   <img src="screenshot_of_ui/resources_screen.png" alt="Knowledge Base" width="250"/>
 </p>
 
-## 🛠️ Technologies Used
+## 🛠️ Technologies & Architecture
+
+### Core Technologies
 
 -   **Framework:** Flutter 3.x
 -   **Language:** Dart
 -   **State Management:** GetX
--   **Platform Support:** Android & iOS (Mobile Only)
--   **Key Packages:**
-    -   `flutter_screenutil` - Responsive UI
-    -   `get` - State management and navigation
-    -   `flutter_svg` - SVG asset rendering
-    -   `pdf` - PDF document generation
-    -   `printing` - PDF sharing and printing
-    -   `path_provider` - File system access
-    -   `device_preview` - Multi-device testing
+-   **Platform:** Android & iOS
+
+### Key Dependencies
+
+```yaml
+dependencies:
+    get: ^4.6.6 # State management & routing
+    flutter_svg: ^2.0.10+1 # SVG rendering
+    pdf: ^3.11.1 # PDF generation
+    printing: ^5.13.2 # PDF sharing
+    path_provider: ^2.1.4 # File system access
+```
+
+### Architecture
+
+-   **Pattern:** MVC with GetX
+-   **State Management:** Reactive GetX controllers
+-   **Navigation:** GetX routing
+-   **UI Components:** Modular and reusable widgets
 
 ## 📂 Project Structure
 
 ```
-lib/
-  ├── main.dart                 # Application entry point
-  ├── controllers/              # GetX controllers for state management
-  │   ├── login_controller.dart
-  │   ├── bottom_navigation_bar_controller.dart
-  │   ├── dashboard_task_tab_controller.dart
-  │   └── payslip_controller.dart
-  ├── views/                    # UI screens
-  │   ├── LoginScreen/
-  │   ├── HomeScreen/
-  │   ├── PaySlipScreen/
-  │   ├── NavBarView/
-  │   └── widgets/              # Reusable UI components
-  ├── utils/                    # Utility classes
-  │   ├── colors.dart
-  │   ├── responsive_helper.dart
-  │   └── pdf_generator.dart
-  └── widgets/                  # Global widgets
-      └── custom_button.dart
-screenshot_of_ui/               # UI design screenshots
+smart_employee_management/
+├── lib/
+│   ├── main.dart                           # App entry point
+│   │
+│   ├── controllers/                        # GetX Controllers
+│   │   ├── login_controller.dart           # Login state management
+│   │   ├── bottom_navigation_bar_controller.dart
+│   │   ├── dashboard_task_tab_controller.dart
+│   │   ├── leave_application_controller.dart
+│   │   └── payslip_controller.dart
+│   │
+│   ├── views/                              # UI Screens
+│   │   ├── LoginScreen/
+│   │   │   └── login_screen.dart
+│   │   ├── HomeScreen/
+│   │   │   ├── home_screen.dart
+│   │   │   └── widgets/
+│   │   │       ├── casual_balance_card.dart
+│   │   │       ├── dashboard_quick_access.dart
+│   │   │       ├── grettings_and_notification.dart
+│   │   │       ├── pending_approvals.dart
+│   │   │       ├── tab_button.dart
+│   │   │       ├── timeline_items_due_task.dart
+│   │   │       └── timeline_items_meeting.dart
+│   │   ├── AttendanceScreen/
+│   │   │   └── attendance_screen.dart
+│   │   ├── LeaveApplication/
+│   │   │   ├── leave_application_step_one.dart
+│   │   │   ├── leave_application_step_two.dart
+│   │   │   └── leave_application_step_three.dart
+│   │   ├── PayslipScreen/
+│   │   │   └── payslip_screen.dart
+│   │   ├── StaffDirectory/
+│   │   │   └── staff_directory.dart
+│   │   └── NavBarView/
+│   │       └── nav_bar_view.dart           # Bottom navigation
+│   │
+│   ├── widgets/                            # Global Widgets
+│   │   └── custom_button.dart
+│   │
+│   └── utils/                              # Utilities
+│       ├── colors.dart                     # App color scheme
+│       └── pdf_generator.dart              # PDF generation utility
+│
+├── assets/
+│   └── svg/                                # SVG assets
+│
+├── screenshot_of_ui/                       # App screenshots
+│
+├── android/                                # Android configuration
+├── ios/                                    # iOS configuration
+│
+├── pubspec.yaml                            # Dependencies
+└── README.md
 ```
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
--   Flutter SDK (3.0 or higher)
--   Dart SDK
--   Android Studio / Xcode for mobile development
--   Android device/emulator or iOS device/simulator
+-   Flutter SDK 3.0 or higher
+-   Dart SDK 3.0 or higher
+-   Android Studio / VS Code
+-   Android SDK (for Android development)
+-   Xcode (for iOS development - macOS only)
 
 ### Installation
 
-1. Clone the repository
+1. **Clone the repository**
+
+    ```bash
+    git clone https://github.com/newbie-saimur/smart-employee-management-app-flutter.git
+    cd smart-employee-management-app-flutter
+    ```
+
+2. **Install dependencies**
+
+    ```bash
+    flutter pub get
+    ```
+
+3. **Run the app**
+
+    ```bash
+    flutter run
+    ```
+
+### Build APK/IPA
 
 ```bash
-git clone https://github.com/newbie-saimur/smart-employee-management-app-flutter.git
-cd smart-employee-management-app-flutter
+# Android APK
+flutter build apk --release
+
+# Android App Bundle
+flutter build appbundle --release
+
+# iOS (macOS only)
+flutter build ios --release
 ```
 
-2. Install dependencies
+## 🎯 Implementation Status
 
-```bash
-flutter pub get
-```
+### ✅ Completed Features
 
-3. Run the app
+-   [x] Login screen with validation
+-   [x] Biometric authentication UI
+-   [x] Bottom navigation with 4 tabs
+-   [x] Dashboard with leave balance card
+-   [x] Quick access shortcuts
+-   [x] Timeline/Task tabs with dynamic switching
+-   [x] Attendance screen UI
+-   [x] 3-step leave application flow
+-   [x] Date picker integration
+-   [x] Payslip screen with month navigation
+-   [x] PDF generation and sharing for payslips
+-   [x] Staff directory with filtering
+-   [x] Notification center (Alerts & Notice Board)
+-   [x] Chat screens UI
+-   [x] Profile screen
+-   [x] Knowledge base UI
+-   [x] Biometric authentication functionality
+-   [x] Responsive design for multiple screen sizes
+-   [x] GetX state management integration
+-   [x] Custom reusable widgets
 
-```bash
-flutter run
-```
+### 🚧 Pending Features
 
-## ✨ Key Features Implemented
+-   [ ] Backend API integration
+-   [ ] Real authentication system
+-   [ ] Database integration
+-   [ ] Push notifications
+-   [ ] Real-time messaging
+-   [ ] File upload functionality
+-   [ ] Location-based attendance tracking
+-   [ ] Search functionality implementation
 
-✅ Responsive UI design for all mobile screen sizes
-✅ GetX state management for reactive UI updates
-✅ PDF generation and sharing for payslips
-✅ Tab navigation with persistent state
-✅ Custom reusable widgets
-✅ SVG asset support
-✅ Device preview for testing multiple screen sizes
-✅ Clean architecture with separation of concerns
+## 🎓 Academic Project
 
-## 🎓 About This Project
+This project was developed as part of a Mobile Application Design course lab project to demonstrate:
 
-This project was developed as part of a Mobile Application Design course to demonstrate modern Flutter development practices, state management with GetX, responsive design principles, and mobile-first UI/UX implementation.
+-   Modern Flutter development practices
+-   State management with GetX
+-   Responsive UI/UX design
+-   PDF generation and file handling
+-   Navigation and routing
+-   Custom widget creation
+-   Clean code architecture
 
-### Development Status
+## 👤 Author
 
--   ✅ UI Implementation Complete
--   ✅ State Management Integrated
--   ✅ Responsive Design Implemented
--   ✅ PDF Generation Feature Added
--   🚧 Backend Integration (Pending)
--   🚧 Real-time Features (Pending)
+**Saimur Rahman**
+
+-   GitHub: [@newbie-saimur](https://github.com/newbie-saimur)
+-   Project: [smart-employee-management-app-flutter](https://github.com/newbie-saimur/smart-employee-management-app-flutter)
 
 ---
 
