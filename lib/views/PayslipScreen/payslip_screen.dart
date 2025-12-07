@@ -203,391 +203,431 @@ class PayslipScreen extends StatelessWidget {
     final PayslipController payslipController = Get.put(PayslipController());
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Salary Slip",
-          style: TextStyle(color: AppColors.primaryTextColor),
-        ),
-        actions: [
-          Obx(() {
-            var currentMonth = payslipController.monthIndex.value;
-            final Map<String, dynamic> data = payslipData[currentMonth];
-
-            return GestureDetector(
-              onTap: () async {
-                try {
-                  await PdfGenerator.generatePayslip(data);
-                  Get.snackbar(
-                    'Success',
-                    'Payslip downloaded successfully',
-                    snackPosition: SnackPosition.BOTTOM,
-                    backgroundColor: Colors.green,
-                    colorText: Colors.white,
-                  );
-                } catch (e) {
-                  Get.snackbar(
-                    'Error',
-                    'Failed to download payslip: $e',
-                    snackPosition: SnackPosition.BOTTOM,
-                    backgroundColor: Colors.red,
-                    colorText: Colors.white,
-                  );
-                }
-              },
-              child: Icon(
-                Icons.file_download_outlined,
-                color: AppColors.secondaryTextColor,
-              ),
-            );
-          }),
-          SizedBox(width: 12),
-        ],
-      ),
-      body: Padding(
-        padding: EdgeInsets.only(left: 16, top: 10, right: 16, bottom: 16),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            spacing: 16,
-            children: [
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            pinned: true,
+            backgroundColor: Colors.white,
+            title: Text(
+              "Salary Slip",
+              style: TextStyle(color: AppColors.primaryTextColor),
+            ),
+            actions: [
               Obx(() {
                 var currentMonth = payslipController.monthIndex.value;
                 final Map<String, dynamic> data = payslipData[currentMonth];
-                final Map<String, dynamic> earningsData = data['earnings'];
-                final Map<String, dynamic> deductionsData = data['deductions'];
 
-                return Column(
-                  spacing: 16,
-                  children: [
-                    // Navigation Month Section
-                    Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 10,
-                        vertical: 10,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(16),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 0.5,
-                            spreadRadius: 1,
-                            blurStyle: BlurStyle.outer,
-                          ),
-                        ],
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          GestureDetector(
-                            onTap: () => payslipController.previousMonth(),
-                            child: Icon(
-                              Icons.arrow_back_ios_rounded,
-                              color: AppColors.secondaryTextColor,
-                            ),
-                          ),
-                          Column(
-                            children: [
-                              Text(
-                                "SALARY MONTH",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 11,
-                                  color: AppColors.secondaryTextColor,
-                                ),
-                              ),
-                              Text(
-                                data['salaryMonth'],
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 18,
-                                  color: AppColors.primaryTextColor,
-                                ),
-                              ),
-                            ],
-                          ),
-                          GestureDetector(
-                            onTap: () => payslipController.nextMonth(),
-                            child: Icon(
-                              Icons.arrow_forward_ios_rounded,
-                              color: AppColors.secondaryTextColor,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    // Main Salary Card
-                    Container(
-                      padding: EdgeInsets.symmetric(vertical: 24),
-                      decoration: BoxDecoration(
-                        color: AppColors.cardBackgroundColor,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Stack(
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  SizedBox(width: 8),
-                                  Text(
-                                    "NET PAY",
-                                    style: TextStyle(
-                                      color: AppColors.secondaryTextColor,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  SizedBox(width: 8),
-                                  GestureDetector(
-                                    onTap: () =>
-                                        payslipController.toggleVisibility(),
-                                    child: Icon(
-                                      payslipController.isVisible.value
-                                          ? Icons.visibility
-                                          : Icons.visibility_off,
-                                      color: AppColors.secondaryTextColor,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  SvgPicture.asset(
-                                    'assets/svg/taka.svg',
-                                    colorFilter: ColorFilter.mode(
-                                      Colors.white,
-                                      BlendMode.srcIn,
-                                    ),
-                                    height: 40,
-                                  ),
-                                  Text(
-                                    payslipController.isVisible.value
-                                        ? data['netPay']
-                                        : "*****",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 46,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Text(
-                                "Disbursed on ${data['disbursementDate']}",
-                                style: TextStyle(
-                                  color: AppColors.secondaryTextColor
-                                      .withValues(alpha: 0.67),
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 10,
-                                ),
-                              ),
-                            ],
-                          ),
-                          _circleStyleForCard(
-                            size: 100,
-                            position: "right",
-                            positionValue: -50,
-                            color: Color(0xFF293445),
-                          ),
-                          _circleStyleForCard(
-                            size: 50,
-                            position: "right",
-                            positionValue: -25,
-                            color: AppColors.secondaryTextColor.withValues(
-                              alpha: 0.2,
-                            ),
-                          ),
-                          _circleStyleForCard(
-                            size: 100,
-                            position: "left",
-                            positionValue: -50,
-                            color: Color(0xFF293445),
-                          ),
-                          _circleStyleForCard(
-                            size: 50,
-                            position: "left",
-                            positionValue: -25,
-                            color: AppColors.secondaryTextColor.withValues(
-                              alpha: 0.2,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    // Earning Details
-                    Container(
-                      padding: EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 0.5,
-                            spreadRadius: 1,
-                            blurStyle: BlurStyle.outer,
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        spacing: 10,
-                        children: [
-                          Text(
-                            "Earnings",
-                            style: TextStyle(
-                              color: AppColors.secondaryTextColor,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          Divider(
-                            height: 1,
-                            color: AppColors.borderColor.withValues(alpha: 0.4),
-                          ),
-                          _showSalaryDetailsRow(
-                            data: earningsData,
-                            title: "Basic Salary",
-                            category: "basicSalary",
-                            isVisible: payslipController.isVisible.value,
-                          ),
-                          _showSalaryDetailsRow(
-                            data: earningsData,
-                            title: "House Rent",
-                            category: "medicalAllowance",
-                            isVisible: payslipController.isVisible.value,
-                          ),
-                          _showSalaryDetailsRow(
-                            data: earningsData,
-                            title: "Medical Allowance",
-                            category: "houseRent",
-                            isVisible: payslipController.isVisible.value,
-                          ),
-                          _showSalaryDetailsRow(
-                            data: earningsData,
-                            title: "Conveyance",
-                            category: "conveyance",
-                            isVisible: payslipController.isVisible.value,
-                          ),
-                          Divider(
-                            height: 1,
-                            color: AppColors.borderColor.withValues(alpha: 0.4),
-                          ),
-                          _showSalaryDetailsRow(
-                            data: earningsData,
-                            title: "TOTAL EARNINGS",
-                            category: "totalEarnings",
-                            isTotal: true,
-                            isVisible: payslipController.isVisible.value,
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    // Deductions Details
-                    Container(
-                      padding: EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 0.5,
-                            spreadRadius: 1,
-                            blurStyle: BlurStyle.outer,
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        spacing: 10,
-                        children: [
-                          Text(
-                            "DEDUCTIONS",
-                            style: TextStyle(
-                              color: AppColors.secondaryTextColor,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          Divider(
-                            height: 1,
-                            color: AppColors.borderColor.withValues(alpha: 0.4),
-                          ),
-                          _showSalaryDetailsRow(
-                            data: deductionsData,
-                            title: "Tax (TDS)",
-                            category: "taxTDS",
-                            isVisible: payslipController.isVisible.value,
-                          ),
-                          _showSalaryDetailsRow(
-                            data: deductionsData,
-                            title: "Provident Fund",
-                            category: "providentFund",
-                            isVisible: payslipController.isVisible.value,
-                          ),
-                          Divider(
-                            height: 1,
-                            color: AppColors.borderColor.withValues(alpha: 0.4),
-                          ),
-                          _showSalaryDetailsRow(
-                            data: deductionsData,
-                            title: "TOTAL DEDUCTIONS",
-                            category: "totalDeductions",
-                            isTotal: true,
-                            isDeductions: true,
-                            isVisible: payslipController.isVisible.value,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                return GestureDetector(
+                  onTap: () async {
+                    try {
+                      await PdfGenerator.generatePayslip(data);
+                      Get.snackbar(
+                        'Success',
+                        'Payslip downloaded successfully',
+                        snackPosition: SnackPosition.BOTTOM,
+                        backgroundColor: Colors.green,
+                        colorText: Colors.white,
+                      );
+                    } catch (e) {
+                      Get.snackbar(
+                        'Error',
+                        'Failed to download payslip: $e',
+                        snackPosition: SnackPosition.BOTTOM,
+                        backgroundColor: Colors.red,
+                        colorText: Colors.white,
+                      );
+                    }
+                  },
+                  child: Icon(
+                    Icons.file_download_outlined,
+                    color: AppColors.secondaryTextColor,
+                  ),
                 );
               }),
-              Row(
-                children: [
-                  Expanded(
-                    child: Obx(() {
-                      var currentMonth = payslipController.monthIndex.value;
-                      final Map<String, dynamic> data =
-                          payslipData[currentMonth];
-
-                      return CustomButton(
-                        icon: Icons.cloud_download_outlined,
-                        title: "Download Payslip",
-                        onTap: () async {
-                          try {
-                            await PdfGenerator.generatePayslip(data);
-                            Get.snackbar(
-                              'Success',
-                              'Payslip downloaded successfully',
-                              snackPosition: SnackPosition.BOTTOM,
-                              backgroundColor: Colors.green,
-                              colorText: Colors.white,
-                            );
-                          } catch (e) {
-                            Get.snackbar(
-                              'Error',
-                              'Failed to download payslip: $e',
-                              snackPosition: SnackPosition.BOTTOM,
-                              backgroundColor: Colors.red,
-                              colorText: Colors.white,
-                            );
-                          }
-                        },
-                      );
-                    }),
-                  ),
-                ],
-              ),
+              SizedBox(width: 12),
             ],
           ),
-        ),
+          SliverList(
+            delegate: SliverChildListDelegate([
+              Padding(
+                padding: EdgeInsets.only(
+                  left: 16,
+                  top: 10,
+                  right: 16,
+                  bottom: 16,
+                ),
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    spacing: 16,
+                    children: [
+                      Obx(() {
+                        var currentMonth = payslipController.monthIndex.value;
+                        final Map<String, dynamic> data =
+                            payslipData[currentMonth];
+                        final Map<String, dynamic> earningsData =
+                            data['earnings'];
+                        final Map<String, dynamic> deductionsData =
+                            data['deductions'];
+
+                        return Column(
+                          spacing: 16,
+                          children: [
+                            // Navigation Month Section
+                            Container(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 10,
+                                vertical: 10,
+                              ),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(16),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black12,
+                                    blurRadius: 0.5,
+                                    spreadRadius: 1,
+                                    blurStyle: BlurStyle.outer,
+                                  ),
+                                ],
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () =>
+                                        payslipController.previousMonth(),
+                                    child: Icon(
+                                      Icons.arrow_back_ios_rounded,
+                                      color: AppColors.secondaryTextColor,
+                                    ),
+                                  ),
+                                  Column(
+                                    children: [
+                                      Text(
+                                        "SALARY MONTH",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 11,
+                                          color: AppColors.secondaryTextColor,
+                                        ),
+                                      ),
+                                      Text(
+                                        data['salaryMonth'],
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 18,
+                                          color: AppColors.primaryTextColor,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  GestureDetector(
+                                    onTap: () => payslipController.nextMonth(),
+                                    child: Icon(
+                                      Icons.arrow_forward_ios_rounded,
+                                      color: AppColors.secondaryTextColor,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+
+                            // Main Salary Card
+                            Container(
+                              padding: EdgeInsets.symmetric(vertical: 24),
+                              decoration: BoxDecoration(
+                                color: AppColors.cardBackgroundColor,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Stack(
+                                children: [
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          SizedBox(width: 8),
+                                          Text(
+                                            "NET PAY",
+                                            style: TextStyle(
+                                              color:
+                                                  AppColors.secondaryTextColor,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          ),
+                                          SizedBox(width: 8),
+                                          GestureDetector(
+                                            onTap: () => payslipController
+                                                .toggleVisibility(),
+                                            child: Icon(
+                                              payslipController.isVisible.value
+                                                  ? Icons.visibility
+                                                  : Icons.visibility_off,
+                                              color:
+                                                  AppColors.secondaryTextColor,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          SvgPicture.asset(
+                                            'assets/svg/taka.svg',
+                                            colorFilter: ColorFilter.mode(
+                                              Colors.white,
+                                              BlendMode.srcIn,
+                                            ),
+                                            height: 40,
+                                          ),
+                                          Text(
+                                            payslipController.isVisible.value
+                                                ? data['netPay']
+                                                : "*****",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 46,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Text(
+                                        "Disbursed on ${data['disbursementDate']}",
+                                        style: TextStyle(
+                                          color: AppColors.secondaryTextColor
+                                              .withValues(alpha: 0.67),
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 10,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  _circleStyleForCard(
+                                    size: 100,
+                                    position: "right",
+                                    positionValue: -50,
+                                    color: Color(0xFF293445),
+                                  ),
+                                  _circleStyleForCard(
+                                    size: 50,
+                                    position: "right",
+                                    positionValue: -25,
+                                    color: AppColors.secondaryTextColor
+                                        .withValues(alpha: 0.2),
+                                  ),
+                                  _circleStyleForCard(
+                                    size: 100,
+                                    position: "left",
+                                    positionValue: -50,
+                                    color: Color(0xFF293445),
+                                  ),
+                                  _circleStyleForCard(
+                                    size: 50,
+                                    position: "left",
+                                    positionValue: -25,
+                                    color: AppColors.secondaryTextColor
+                                        .withValues(alpha: 0.2),
+                                  ),
+                                ],
+                              ),
+                            ),
+
+                            // Earning Details
+                            Container(
+                              padding: EdgeInsets.all(16),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(12),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black12,
+                                    blurRadius: 0.5,
+                                    spreadRadius: 1,
+                                    blurStyle: BlurStyle.outer,
+                                  ),
+                                ],
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                spacing: 10,
+                                children: [
+                                  Text(
+                                    "Earnings",
+                                    style: TextStyle(
+                                      color: AppColors.secondaryTextColor,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  Divider(
+                                    height: 1,
+                                    color: AppColors.borderColor.withValues(
+                                      alpha: 0.4,
+                                    ),
+                                  ),
+                                  _showSalaryDetailsRow(
+                                    data: earningsData,
+                                    title: "Basic Salary",
+                                    category: "basicSalary",
+                                    isVisible:
+                                        payslipController.isVisible.value,
+                                  ),
+                                  _showSalaryDetailsRow(
+                                    data: earningsData,
+                                    title: "House Rent",
+                                    category: "medicalAllowance",
+                                    isVisible:
+                                        payslipController.isVisible.value,
+                                  ),
+                                  _showSalaryDetailsRow(
+                                    data: earningsData,
+                                    title: "Medical Allowance",
+                                    category: "houseRent",
+                                    isVisible:
+                                        payslipController.isVisible.value,
+                                  ),
+                                  _showSalaryDetailsRow(
+                                    data: earningsData,
+                                    title: "Conveyance",
+                                    category: "conveyance",
+                                    isVisible:
+                                        payslipController.isVisible.value,
+                                  ),
+                                  Divider(
+                                    height: 1,
+                                    color: AppColors.borderColor.withValues(
+                                      alpha: 0.4,
+                                    ),
+                                  ),
+                                  _showSalaryDetailsRow(
+                                    data: earningsData,
+                                    title: "TOTAL EARNINGS",
+                                    category: "totalEarnings",
+                                    isTotal: true,
+                                    isVisible:
+                                        payslipController.isVisible.value,
+                                  ),
+                                ],
+                              ),
+                            ),
+
+                            // Deductions Details
+                            Container(
+                              padding: EdgeInsets.all(16),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(12),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black12,
+                                    blurRadius: 0.5,
+                                    spreadRadius: 1,
+                                    blurStyle: BlurStyle.outer,
+                                  ),
+                                ],
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                spacing: 10,
+                                children: [
+                                  Text(
+                                    "DEDUCTIONS",
+                                    style: TextStyle(
+                                      color: AppColors.secondaryTextColor,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  Divider(
+                                    height: 1,
+                                    color: AppColors.borderColor.withValues(
+                                      alpha: 0.4,
+                                    ),
+                                  ),
+                                  _showSalaryDetailsRow(
+                                    data: deductionsData,
+                                    title: "Tax (TDS)",
+                                    category: "taxTDS",
+                                    isVisible:
+                                        payslipController.isVisible.value,
+                                  ),
+                                  _showSalaryDetailsRow(
+                                    data: deductionsData,
+                                    title: "Provident Fund",
+                                    category: "providentFund",
+                                    isVisible:
+                                        payslipController.isVisible.value,
+                                  ),
+                                  Divider(
+                                    height: 1,
+                                    color: AppColors.borderColor.withValues(
+                                      alpha: 0.4,
+                                    ),
+                                  ),
+                                  _showSalaryDetailsRow(
+                                    data: deductionsData,
+                                    title: "TOTAL DEDUCTIONS",
+                                    category: "totalDeductions",
+                                    isTotal: true,
+                                    isDeductions: true,
+                                    isVisible:
+                                        payslipController.isVisible.value,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        );
+                      }),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Obx(() {
+                              var currentMonth =
+                                  payslipController.monthIndex.value;
+                              final Map<String, dynamic> data =
+                                  payslipData[currentMonth];
+
+                              return CustomButton(
+                                icon: Icons.cloud_download_outlined,
+                                title: "Download Payslip",
+                                onTap: () async {
+                                  try {
+                                    await PdfGenerator.generatePayslip(data);
+                                    Get.snackbar(
+                                      'Success',
+                                      'Payslip downloaded successfully',
+                                      snackPosition: SnackPosition.BOTTOM,
+                                      backgroundColor: Colors.green,
+                                      colorText: Colors.white,
+                                    );
+                                  } catch (e) {
+                                    Get.snackbar(
+                                      'Error',
+                                      'Failed to download payslip: $e',
+                                      snackPosition: SnackPosition.BOTTOM,
+                                      backgroundColor: Colors.red,
+                                      colorText: Colors.white,
+                                    );
+                                  }
+                                },
+                              );
+                            }),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ]),
+          ),
+        ],
       ),
     );
   }

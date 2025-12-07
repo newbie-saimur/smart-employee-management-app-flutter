@@ -56,6 +56,9 @@ dependencies:
     # For persistent local storage
     get_storage: ^2.1.1
 
+    # HTTP requests
+    http: ^1.6.0
+
 dev_dependencies:
     flutter_test:
         sdk: flutter
