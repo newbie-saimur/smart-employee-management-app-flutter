@@ -1,13 +1,20 @@
 import 'dart:convert';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
-const String GEMINI_API_KEY = "AIzaSyBr9_rxEWyNBiuwqfKQvZeTOr_FtrXKlsI";
+// Load API key from environment variables
+final String GEMINI_API_KEY = dotenv.env['GEMINI_API_KEY'] ?? '';
 const String API_URL =
     "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent";
 
 class GeminiService {
   // Sending prompt to the Gemini API and getting a response
   Future<String> getAiResponse(String prompt) async {
+    // Check if API key is available
+    if (GEMINI_API_KEY.isEmpty) {
+      return "ERROR: Gemini API key not found. Please add it to .env file.";
+    }
+
     try {
       final response = await http.post(
         Uri.parse('$API_URL?key=$GEMINI_API_KEY'),

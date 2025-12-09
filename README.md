@@ -83,6 +83,15 @@ Smart Employee Management is a full-featured mobile application that streamlines
     -   Login attempt tracking
 -   Real-time notification badges
 
+### 🤖 AI Assistant
+
+-   Smart HR policy assistant powered by Gemini AI
+-   Natural language policy queries
+-   Context-aware responses grounded in company policies
+-   Real-time chat interface
+-   Quick answers to HR-related questions
+-   Google Search integration for comprehensive information
+
 ### 💬 Messaging (UI Only)
 
 -   Direct and group messaging interface
@@ -148,6 +157,7 @@ Smart Employee Management is a full-featured mobile application that streamlines
 
 <p align="center">
   <img src="screenshot_of_ui/notice_board_screen.png" alt="Notice Board" width="250"/>
+  <img src="screenshot_of_ui/ai_assistant.png" alt="AI Assistant" width="250"/>
 </p>
 
 ### Employee Directory & Payroll
@@ -204,7 +214,9 @@ smart_employee_management/
 │   │   ├── bottom_navigation_bar_controller.dart
 │   │   ├── dashboard_task_tab_controller.dart
 │   │   ├── leave_application_controller.dart
-│   │   └── payslip_controller.dart
+│   │   ├── payslip_controller.dart
+│   │   ├── attendance_controller.dart
+│   │   └── gemini_controller.dart          # AI Assistant controller
 │   │
 │   ├── views/                              # UI Screens
 │   │   ├── LoginScreen/
@@ -229,6 +241,11 @@ smart_employee_management/
 │   │   │   └── payslip_screen.dart
 │   │   ├── StaffDirectory/
 │   │   │   └── staff_directory.dart
+│   │   ├── AIAssistantScreen/              # AI Assistant
+│   │   │   ├── ai_assistant_screen.dart
+│   │   │   └── widgets/
+│   │   │       ├── chat_bubble.dart
+│   │   │       └── gemini_services.dart    # Gemini API integration
 │   │   └── NavBarView/
 │   │       └── nav_bar_view.dart           # Bottom navigation
 │   │
@@ -243,6 +260,9 @@ smart_employee_management/
 │   └── svg/                                # SVG assets
 │
 ├── screenshot_of_ui/                       # App screenshots
+│
+├── .env                                    # Environment variables (not tracked)
+├── .env.example                            # Environment template
 │
 ├── android/                                # Android configuration
 ├── ios/                                    # iOS configuration
@@ -276,7 +296,24 @@ smart_employee_management/
     flutter pub get
     ```
 
-3. **Run the app**
+3. **Set up environment variables**
+
+    Create a `.env` file in the root directory and add your Gemini API key:
+
+    ```bash
+    # Copy the example file
+    cp .env.example .env
+    ```
+
+    Edit `.env` and add your actual API key:
+
+    ```env
+    GEMINI_API_KEY=your_actual_gemini_api_key_here
+    ```
+
+    > **🔑 Get Gemini API Key:** Visit [Google AI Studio](https://makersuite.google.com/app/apikey) to get your free API key
+
+4. **Run the app**
 
     ```bash
     flutter run
