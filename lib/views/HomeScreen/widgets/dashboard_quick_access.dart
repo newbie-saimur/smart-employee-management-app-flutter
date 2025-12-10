@@ -37,7 +37,7 @@ class DashboardQuickAccess extends StatelessWidget {
         return GestureDetector(
           onTap: () {
             data['title'] == "Directory"
-                ? Get.to(StaffDirectory())
+                ? Get.to(StaffDirectoryScreen())
                 : data['title'] == "Payslip"
                 ? Get.to(PayslipScreen())
                 : data['title'] == "Attend."

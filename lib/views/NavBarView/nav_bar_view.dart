@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:smart_employee_management/controllers/bottom_navigation_bar_controller.dart';
 import 'package:smart_employee_management/utils/colors.dart';
 import 'package:smart_employee_management/views/HomeScreen/home_screen.dart';
+import 'package:smart_employee_management/views/MyProfile/my_profile.dart';
 
 class NavBarView extends StatelessWidget {
   const NavBarView({super.key});
@@ -11,7 +12,7 @@ class NavBarView extends StatelessWidget {
     HomeScreen(),
     Center(child: Text('Chat')),
     Center(child: Text('Resources')),
-    Center(child: Text('Profile')),
+    MyProfileScreen(),
   ];
 
   @override
