@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:smart_employee_management/utils/colors.dart';
 import 'package:smart_employee_management/views/LoginScreen/login_screen.dart';
 
-void main() => runApp(MyApp());
+Future<void> main() async {
+  // Load environment variables
+  await dotenv.load(fileName: ".env");
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
