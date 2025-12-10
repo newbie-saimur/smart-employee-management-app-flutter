@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smart_employee_management/controllers/dashboard_task_tab_controller.dart';
 import 'package:smart_employee_management/utils/colors.dart';
+import 'package:smart_employee_management/views/AIAssistantScreen/ai_assistant_screen.dart';
 import 'package:smart_employee_management/views/HomeScreen/widgets/casual_balance_card.dart';
 import 'package:smart_employee_management/views/HomeScreen/widgets/dashboard_quick_access.dart';
 import 'package:smart_employee_management/views/HomeScreen/widgets/grettings_and_notification.dart';
@@ -500,7 +501,9 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Get.to(AiAssistantScreen());
+        },
         child: Icon(Icons.auto_awesome_outlined, size: 30),
       ),
     );
