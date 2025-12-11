@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smart_employee_management/controllers/bottom_navigation_bar_controller.dart';
 import 'package:smart_employee_management/utils/colors.dart';
+import 'package:smart_employee_management/views/ChatInboxScreen/chat_inbox_screen.dart';
 import 'package:smart_employee_management/views/HomeScreen/home_screen.dart';
 import 'package:smart_employee_management/views/MyProfile/my_profile.dart';
 import 'package:smart_employee_management/views/Resources/resources_screen.dart';
@@ -11,7 +12,7 @@ class NavBarView extends StatelessWidget {
 
   static List<Widget> screens = [
     HomeScreen(),
-    Center(child: Text('Chat')),
+    ChatInboxScreen(),
     ResourcesScreen(),
     MyProfileScreen(),
   ];
