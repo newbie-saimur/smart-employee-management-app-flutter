@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smart_employee_management/controllers/my_profile_controller.dart';
-import 'package:smart_employee_management/views/HomeScreen/home_screen.dart';
+import 'package:smart_employee_management/views/NavBarView/nav_bar_view.dart';
 
 Color _getColorFromHex(String hexColor) {
   hexColor = hexColor.toUpperCase().replaceAll("#", "");
@@ -15,7 +15,7 @@ class MyProfileScreen extends GetView<MyProfileController> {
   const MyProfileScreen({super.key});
 
   Future<bool> _onWillPop() async {
-    Get.offAll(() => HomeScreen());
+    Get.offAll(() => NavBarView());
     return false;
   }
 
