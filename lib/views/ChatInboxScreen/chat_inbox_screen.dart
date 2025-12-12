@@ -55,7 +55,7 @@ class ChatInboxScreen extends GetView<ChatInboxController> {
                   borderRadius: BorderRadius.circular(12),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.05),
+                      color: Colors.black.withValues(alpha: .05),
                       blurRadius: 4,
                     ),
                   ],
@@ -205,7 +205,10 @@ class ChatInboxScreen extends GetView<ChatInboxController> {
           borderRadius: BorderRadius.circular(24),
           border: Border.all(color: const Color(0xFFF1F5F9)),
           boxShadow: [
-            BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 4),
+            BoxShadow(
+              color: Colors.black.withValues(alpha: .05),
+              blurRadius: 4,
+            ),
           ],
         ),
         child: InkWell(
@@ -323,7 +326,7 @@ class ChatInboxScreen extends GetView<ChatInboxController> {
           height: 48,
           decoration: BoxDecoration(
             color: chat.type == 'group'
-                ? chat.avatarColor.withOpacity(0.1)
+                ? chat.avatarColor.withValues(alpha: .1)
                 : chat.avatarColor,
             borderRadius: BorderRadius.circular(24),
             border: Border.all(color: const Color(0xFFF1F5F9)),

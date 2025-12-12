@@ -186,7 +186,7 @@ class ChatBubble extends StatelessWidget {
     final Color bubbleColor = isSent ? _kPrimaryBlue : Colors.white;
     final Color textColor = isSent
         ? Colors.white
-        : _kDarkSlate.withOpacity(0.9);
+        : _kDarkSlate.withValues(alpha: .9);
     final BorderRadius borderRadius = BorderRadius.only(
       bottomLeft: isSent ? const Radius.circular(16) : Radius.zero,
       bottomRight: isSent ? Radius.zero : const Radius.circular(16),
@@ -241,7 +241,7 @@ class ChatBubble extends StatelessWidget {
                     borderRadius: borderRadius,
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.05),
+                        color: Colors.black.withValues(alpha: .05),
                         blurRadius: 5,
                       ),
                     ],
@@ -318,7 +318,7 @@ class ChatDetailsScreen extends GetView<ChatDetailsController> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 1,
-        shadowColor: Colors.black.withOpacity(0.1),
+        shadowColor: Colors.black.withValues(alpha: .1),
         titleSpacing: 0,
         automaticallyImplyLeading: false,
         title: Row(
@@ -497,7 +497,10 @@ class ChatDetailsScreen extends GetView<ChatDetailsController> {
           borderRadius: BorderRadius.circular(28),
           border: Border.all(color: Colors.grey.shade300),
           boxShadow: [
-            BoxShadow(color: Colors.black.withOpacity(0.02), blurRadius: 5),
+            BoxShadow(
+              color: Colors.black.withValues(alpha: .02),
+              blurRadius: 5,
+            ),
           ],
         ),
         child: Row(
