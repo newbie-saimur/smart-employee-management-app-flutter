@@ -225,7 +225,7 @@ class AttendanceScreen extends StatelessWidget {
           child: TextButton.icon(
             onPressed: () {},
             label: Text(
-              "Nov 2025",
+              "Dec 2025",
               style: TextStyle(color: AppColors.primaryColor, fontSize: 12),
             ),
             iconAlignment: IconAlignment.end,
@@ -250,9 +250,9 @@ class AttendanceScreen extends StatelessWidget {
 
   Widget _buildMonthlyStats() {
     final monthlyStats = {
-      'PRESENT': {'value': '18', 'color': Colors.blueGrey.shade800},
-      'LATE': {'value': '02', 'color': Colors.red.shade500},
-      'ABSENT': {'value': '01', 'color': Colors.orange.shade500},
+      'PRESENT': {'value': '13', 'color': Colors.blueGrey.shade800},
+      'LATE': {'value': '01', 'color': Colors.red.shade500},
+      'ABSENT': {'value': '00', 'color': Colors.orange.shade500},
     };
 
     return Row(
@@ -314,8 +314,8 @@ class AttendanceScreen extends StatelessWidget {
   Widget _buildRecentLogs() {
     final logsData = [
       {
-        "dateNumber": 23,
-        "dayName": "Thursday",
+        "dateNumber": 14,
+        "dayName": "Sunday",
         "checkInTime": "9:00 AM",
         "checkOutTime": "6:05 PM",
         "status": "On Time",
@@ -323,8 +323,8 @@ class AttendanceScreen extends StatelessWidget {
         "backgroundColorHex": "#ECFDF5",
       },
       {
-        "dateNumber": 22,
-        "dayName": "Wednesday",
+        "dateNumber": 13,
+        "dayName": "Saturday",
         "checkInTime": "9:45 AM",
         "checkOutTime": "6:30 PM",
         "status": "Late",
@@ -332,8 +332,8 @@ class AttendanceScreen extends StatelessWidget {
         "backgroundColorHex": "#FFF1F2",
       },
       {
-        "dateNumber": 21,
-        "dayName": "Tuesday",
+        "dateNumber": 11,
+        "dayName": "Thursday",
         "checkInTime": "8:55 AM",
         "checkOutTime": "6:00 PM",
         "status": "On Time",
@@ -341,8 +341,8 @@ class AttendanceScreen extends StatelessWidget {
         "backgroundColorHex": "#ECFDF5",
       },
       {
-        "dateNumber": 20,
-        "dayName": "Monday",
+        "dateNumber": 10,
+        "dayName": "Wednesday",
         "checkInTime": "9:05 AM",
         "checkOutTime": "6:10 PM",
         "status": "On Time",
