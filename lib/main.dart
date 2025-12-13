@@ -5,7 +5,6 @@ import 'package:smart_employee_management/utils/colors.dart';
 import 'package:smart_employee_management/views/LoginScreen/login_screen.dart';
 
 Future<void> main() async {
-  // Load environment variables
   await dotenv.load(fileName: ".env");
   runApp(MyApp());
 }

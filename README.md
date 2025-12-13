@@ -92,14 +92,15 @@ Smart Employee Management is a full-featured mobile application that streamlines
 -   Quick answers to HR-related questions
 -   Google Search integration for comprehensive information
 
-### 💬 Messaging (UI Only)
+### 💬 Messaging
 
--   Direct and group messaging interface
--   Unread conversation indicators
--   File attachment support (PDF, documents)
--   Message search functionality
--   Pinned conversations
--   Chat history
+-   Chat inbox with conversation list
+-   Unread message indicators
+-   Individual chat details screen
+-   Message timestamps and read status
+-   File attachment display (PDF, documents)
+-   User avatar and online status
+-   Search and filter conversations
 
 ### 👤 Profile Management
 
@@ -110,19 +111,23 @@ Smart Employee Management is a full-featured mobile application that streamlines
     -   Desk location
     -   Employee ID
 -   Contact details (phone, email)
--   Security settings
--   Notification preferences
+-   Profile photo and cover image
+-   Edit profile functionality
+-   Settings and preferences
 
-### 📚 Knowledge Base (UI Only)
+### 📚 Resources & Learning
 
--   Training modules with progress tracking
+-   Training courses with detailed information
+-   Course progress tracking
+-   Video lectures and materials
 -   Document library:
     -   Employee Handbook
     -   Insurance Policy
-    -   API Documentation
--   Category-based organization (General, Legal, Engineering)
--   Document download functionality
--   Resume training functionality
+    -   Technical Documentation
+-   Category-based organization
+-   Course enrollment and completion
+-   Certificate generation
+-   Instructor information
 
 ## 🎨 UI Screenshots
 
@@ -216,7 +221,12 @@ smart_employee_management/
 │   │   ├── leave_application_controller.dart
 │   │   ├── payslip_controller.dart
 │   │   ├── attendance_controller.dart
-│   │   └── gemini_controller.dart          # AI Assistant controller
+│   │   ├── gemini_controller.dart          # AI Assistant controller
+│   │   ├── chat_inbox_controller.dart      # Messaging controller
+│   │   ├── notification_controller.dart    # Notifications controller
+│   │   ├── staff_directory_controller.dart # Staff directory controller
+│   │   ├── my_profile_controller.dart      # Profile controller
+│   │   └── resources_controller.dart       # Learning resources controller
 │   │
 │   ├── views/                              # UI Screens
 │   │   ├── LoginScreen/
@@ -240,7 +250,23 @@ smart_employee_management/
 │   │   ├── PayslipScreen/
 │   │   │   └── payslip_screen.dart
 │   │   ├── StaffDirectory/
-│   │   │   └── staff_directory.dart
+│   │   │   └── staff_directory_screen.dart
+│   │   ├── SingleStaffProfile/
+│   │   │   └── single_staff_profile_screen.dart
+│   │   ├── ChatInboxScreen/                # Messaging
+│   │   │   └── chat_inbox_screen.dart
+│   │   ├── ChatDetailsScreen/
+│   │   │   └── chat_details_screen.dart
+│   │   ├── NotificationScreen/
+│   │   │   └── notification_screen.dart
+│   │   ├── NotificationDetailScreen/
+│   │   │   └── notification_detail_screen.dart
+│   │   ├── MyProfile/
+│   │   │   └── my_profile_screen.dart
+│   │   ├── Resources/                      # Learning & Training
+│   │   │   └── resources_screen.dart
+│   │   ├── CourseDetailsScreen/
+│   │   │   └── course_details_screen.dart
 │   │   ├── AIAssistantScreen/              # AI Assistant
 │   │   │   ├── ai_assistant_screen.dart
 │   │   │   └── widgets/
