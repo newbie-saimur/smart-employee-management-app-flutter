@@ -25,7 +25,7 @@ class _CourseDetailsScreenState extends State<CourseDetailsScreen>
     "author": "Saimur Rahman",
     "ratings": 4.9,
     "durationTotalHours": 32,
-    "priceUSD": 0,
+    "priceUSD": 49,
     "modules": [
       {
         "moduleName": "State Management with GetX",
@@ -231,7 +231,6 @@ Course Focus Areas:
 
             const SizedBox(height: 16),
 
-            // 2. COURSE METADATA
             Text(
               courseDetails['courseName'],
               style: const TextStyle(
@@ -309,7 +308,6 @@ Course Focus Areas:
             ),
             const SizedBox(height: 20),
 
-            // 3. TAB BAR (V2 Style)
             Container(
               padding: const EdgeInsets.all(4),
               height: 55,
@@ -324,7 +322,7 @@ Course Focus Areas:
                 labelColor: Colors.white,
                 indicatorSize: TabBarIndicatorSize.tab,
                 indicator: BoxDecoration(
-                  color: _kDarkSlate, // Dark slate background for active tab
+                  color: _kDarkSlate,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 dividerColor: Colors.transparent,
@@ -339,7 +337,6 @@ Course Focus Areas:
               ),
             ),
 
-            // 4. TAB BAR VIEW
             Expanded(
               child: TabBarView(
                 controller: _tabController,
@@ -431,7 +428,6 @@ Course Focus Areas:
         ),
       ),
 
-      // 5. BOTTOM NAVIGATION BAR (Action Bar)
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(
           left: 16,

@@ -53,7 +53,7 @@ final List<UserAlert> mockAlerts = [
     id: 'A-001',
     title: 'Leave Approved',
     message:
-        'Your Casual Leave for Nov 24-26 has been approved by Abdul Hamid.',
+        'Your Casual Leave for Dec 16-18 has been approved by Abdul Hamid.',
     time: '2m ago',
     icon: Icons.check_circle_outline,
     iconColor: const Color(0xFF0F766E),
@@ -84,7 +84,7 @@ final List<CompanyNotice> mockNotices = [
     id: 'N-001',
     title: 'Server Maintenance',
     snippet:
-        'HR Portal will be down for scheduled maintenance on Friday, Nov 24 from 10:00 PM to 02:00 AM.',
+        'HR Portal will be down for scheduled maintenance on Tuesday, Dec 16 from 10:00 PM to 02:00 AM.',
     category: 'Critical',
     time: '2 hours ago',
     isPinned: true,
