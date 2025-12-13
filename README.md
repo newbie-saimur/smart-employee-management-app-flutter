@@ -380,12 +380,12 @@ This project was developed as part of a Mobile Application Design course lab pro
 -   Custom widget creation
 -   Clean code architecture
 
-## 👤 Author
+<!-- ## 👤 Author -->
 
-**Saimur Rahman**
+<!-- **Saimur Rahman** -->
 
--   GitHub: [@newbie-saimur](https://github.com/newbie-saimur)
--   Project: [smart-employee-management-app-flutter](https://github.com/newbie-saimur/smart-employee-management-app-flutter)
+<!-- -   GitHub: [@newbie-saimur](https://github.com/newbie-saimur) -->
+<!-- -   Project: [smart-employee-management-app-flutter](https://github.com/newbie-saimur/smart-employee-management-app-flutter) -->
 
 ---
 
