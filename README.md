@@ -136,6 +136,7 @@ Smart Employee Management is a full-featured mobile application that streamlines
 <p align="center">
   <img src="screenshot_of_ui/login.png" alt="Login Screen" width="250"/>
   <img src="screenshot_of_ui/dashboard.png" alt="Dashboard" width="250"/>
+  <img src="screenshot_of_ui/meeting_details.png" alt="Meeting Details" width="250"/>
 </p>
 
 ### Attendance & Leave Management
@@ -152,32 +153,42 @@ Smart Employee Management is a full-featured mobile application that streamlines
   <img src="screenshot_of_ui/leave_application_confirmation_snackbar.png" alt="Confirmation" width="250"/>
 </p>
 
+<p align="center">
+  <img src="screenshot_of_ui/leave_request_details.png" alt="Leave Request Details" width="250"/>
+</p>
+
 ### Communication & Notifications
 
 <p align="center">
-  <img src="screenshot_of_ui/chat_screen.png" alt="Messages" width="250"/>
-  <img src="screenshot_of_ui/chat_details_screen.png" alt="Chat Details" width="250"/>
-  <img src="screenshot_of_ui/notification_screen.png" alt="Notifications" width="250"/>
+  <img src="screenshot_of_ui/chat_inbox.png" alt="Chat Inbox" width="250"/>
+  <img src="screenshot_of_ui/chat_details.png" alt="Chat Details" width="250"/>
+  <img src="screenshot_of_ui/notification_alert.png" alt="My Alerts" width="250"/>
 </p>
 
 <p align="center">
-  <img src="screenshot_of_ui/notice_board_screen.png" alt="Notice Board" width="250"/>
+  <img src="screenshot_of_ui/notification_notice.png" alt="Notice Board" width="250"/>
+  <img src="screenshot_of_ui/notice_details.png" alt="Notice Details" width="250"/>
   <img src="screenshot_of_ui/ai_assistant.png" alt="AI Assistant" width="250"/>
 </p>
 
 ### Employee Directory & Payroll
 
 <p align="center">
-  <img src="screenshot_of_ui/staff_directory_screen.png" alt="Staff Directory" width="250"/>
-  <img src="screenshot_of_ui/staff_profile_screen.png" alt="Profile Details" width="250"/>
-  <img src="screenshot_of_ui/payslip.png" alt="Salary Slip" width="250"/>
+  <img src="screenshot_of_ui/staff_directory.png" alt="Staff Directory" width="250"/>
+  <img src="screenshot_of_ui/staff_profile.png" alt="Staff Profile" width="250"/>
+  <img src="screenshot_of_ui/payslip.png" alt="Payslip" width="250"/>
+</p>
+
+<p align="center">
+  <img src="screenshot_of_ui/payslip_access_request_review.png" alt="Access Request Review" width="250"/>
 </p>
 
 ### Profile & Resources
 
 <p align="center">
-  <img src="screenshot_of_ui/profile_screen.png" alt="My Profile" width="250"/>
-  <img src="screenshot_of_ui/resources_screen.png" alt="Knowledge Base" width="250"/>
+  <img src="screenshot_of_ui/profile.png" alt="My Profile" width="250"/>
+  <img src="screenshot_of_ui/resources.png" alt="Learning Resources" width="250"/>
+  <img src="screenshot_of_ui/course_details.png" alt="Course Details" width="250"/>
 </p>
 
 ## 🛠️ Technologies & Architecture
