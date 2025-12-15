@@ -139,6 +139,12 @@ Smart Employee Management is a full-featured mobile application that streamlines
   <img src="screenshot_of_ui/meeting_details.png" alt="Meeting Details" width="250"/>
 </p>
 
+<p align="center">
+  <img src="screenshot_of_ui/leave_request_details.png" alt="Leave Request Details" width="250"/>
+  <img src="screenshot_of_ui/payslip_access_request_review.png" alt="Access Request Review" width="250"/>
+  <img src="screenshot_of_ui/due-task-details.png" alt="Due Task Details" width="250"/>
+</p>
+
 ### Attendance & Leave Management
 
 <p align="center">
@@ -151,10 +157,6 @@ Smart Employee Management is a full-featured mobile application that streamlines
   <img src="screenshot_of_ui/leave_application_step_3.png" alt="Leave Request Step 3" width="250"/>
   <img src="screenshot_of_ui/leave_application_date_picker.png" alt="Date Picker" width="250"/>
   <img src="screenshot_of_ui/leave_application_confirmation_snackbar.png" alt="Confirmation" width="250"/>
-</p>
-
-<p align="center">
-  <img src="screenshot_of_ui/leave_request_details.png" alt="Leave Request Details" width="250"/>
 </p>
 
 ### Communication & Notifications
@@ -177,10 +179,6 @@ Smart Employee Management is a full-featured mobile application that streamlines
   <img src="screenshot_of_ui/staff_directory.png" alt="Staff Directory" width="250"/>
   <img src="screenshot_of_ui/staff_profile.png" alt="Staff Profile" width="250"/>
   <img src="screenshot_of_ui/payslip.png" alt="Payslip" width="250"/>
-</p>
-
-<p align="center">
-  <img src="screenshot_of_ui/payslip_access_request_review.png" alt="Access Request Review" width="250"/>
 </p>
 
 ### Profile & Resources

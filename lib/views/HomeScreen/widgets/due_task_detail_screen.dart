@@ -210,7 +210,7 @@ class DueTaskDetailScreen extends StatelessWidget {
                   Get.to(NavBarView());
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: _getPriorityColor("High"),
+                  backgroundColor: Colors.green,
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
