@@ -142,7 +142,7 @@ Smart Employee Management is a full-featured mobile application that streamlines
 <p align="center">
   <img src="screenshot_of_ui/leave_request_details.png" alt="Leave Request Details" width="250"/>
   <img src="screenshot_of_ui/payslip_access_request_review.png" alt="Access Request Review" width="250"/>
-  <img src="screenshot_of_ui/due-task-details.png" alt="Due Task Details" width="250"/>
+  <img src="screenshot_of_ui/due_task_details.png" alt="Due Task Details" width="250"/>
 </p>
 
 ### Attendance & Leave Management
