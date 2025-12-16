@@ -1,12 +1,14 @@
-# Smart Employee Management
+# Smart Employee Hub
 
-> [!NOTE] > **📱 Android & iOS Only** - This application is designed for mobile devices.
+> [!NOTE] > **📱 Android & iOS Only** - This application is designed exclusively for mobile platforms.
 
-A comprehensive employee management system built with Flutter for managing HR operations, attendance tracking, leave requests, payroll, and employee communications.
+A comprehensive employee management system built with Flutter, providing a streamlined solution for HR operations, attendance tracking, leave management, payroll processing, and internal communications.
 
 ## 📱 About
 
-Smart Employee Management is a full-featured mobile application that streamlines HR and employee management tasks. Built with Flutter and GetX for state management, it provides an intuitive interface for employees to manage their work-related activities including attendance tracking, leave applications, payroll viewing, staff directory access, and internal messaging.
+Smart Employee Hub is a feature-rich mobile application designed to streamline HR and employee management operations. Leveraging Flutter's cross-platform capabilities and GetX for robust state management, this application delivers an intuitive and responsive interface for employees to efficiently manage their daily work activities, including attendance tracking, leave applications, payroll access, team directory, and internal communications.
+
+This application serves as a proof-of-concept demonstrating modern mobile development practices, featuring a complete UI/UX implementation with simulated data flows. It showcases the potential of Flutter-based enterprise applications while maintaining a focus on user experience and code quality.
 
 ## ✨ Features
 
@@ -85,12 +87,12 @@ Smart Employee Management is a full-featured mobile application that streamlines
 
 ### 🤖 AI Assistant
 
--   Smart HR policy assistant powered by Gemini AI
--   Natural language policy queries
--   Context-aware responses grounded in company policies
--   Real-time chat interface
--   Quick answers to HR-related questions
--   Google Search integration for comprehensive information
+-   Smart HR policy assistant powered by Google's Gemini AI
+-   Natural language query processing for HR policies
+-   Context-aware responses grounded in company guidelines
+-   Real-time conversational chat interface
+-   Instant answers to HR-related inquiries
+-   Intelligent policy search and information retrieval
 
 ### 💬 Messaging
 
@@ -104,30 +106,31 @@ Smart Employee Management is a full-featured mobile application that streamlines
 
 ### 👤 Profile Management
 
--   Personal information display
--   Work information:
-    -   Department
+-   Comprehensive personal information display
+-   Professional details:
+    -   Department and designation
     -   Reporting manager
-    -   Desk location
-    -   Employee ID
--   Contact details (phone, email)
--   Profile photo and cover image
--   Edit profile functionality
--   Settings and preferences
+    -   Office desk location
+    -   Employee ID and joining date
+-   Contact information (phone, email)
+-   Profile photo and cover image customization
+-   Edit profile capabilities
+-   User preferences and settings
 
 ### 📚 Resources & Learning
 
--   Training courses with detailed information
--   Course progress tracking
--   Video lectures and materials
--   Document library:
+-   Comprehensive training course catalog
+-   Real-time course progress tracking
+-   Video lectures and learning materials
+-   Centralized document library:
     -   Employee Handbook
     -   Insurance Policy
     -   Technical Documentation
--   Category-based organization
--   Course enrollment and completion
--   Certificate generation
--   Instructor information
+    -   Standard Operating Procedures
+-   Categorized resource organization
+-   Course enrollment management
+-   Digital certificate generation
+-   Instructor profiles and credentials
 
 ## 🎨 UI Screenshots
 
@@ -367,6 +370,16 @@ flutter build appbundle --release
 flutter build ios --release
 ```
 
+### 📥 Download Release APK
+
+For quick testing on Android devices, download the pre-built APK:
+
+**[Download smart-employee-management.apk](release/smart-employee-management.apk)** (~54 MB)
+
+> **⚠️ Important:** This is a comprehensive UI/UX demonstration showcasing frontend design and user interface implementation. The application currently operates with simulated data and does not include backend database connectivity. Features such as authentication, data persistence, and real-time synchronization are represented through mock data flows. Refer to the [Pending Features](#-pending-features) section for planned backend integrations.
+>
+> **Installation Note:** To install this APK, you may need to enable "Install from Unknown Sources" or "Allow from this source" in your Android device security settings.
+
 ## 🎯 Implementation Status
 
 ### ✅ Completed Features
@@ -391,37 +404,79 @@ flutter build ios --release
 -   [x] Responsive design for multiple screen sizes
 -   [x] GetX state management integration
 -   [x] Custom reusable widgets
+-   [x] Search functionality implementation
 
 ### 🚧 Pending Features
 
+#### Backend & Infrastructure
+
 -   [ ] Backend API integration
+-   [ ] Firebase integration (Authentication, Firestore, Cloud Storage)
 -   [ ] Real authentication system
 -   [ ] Database integration
 -   [ ] Push notifications
 -   [ ] Real-time messaging
+
+#### Administrative Features
+
+-   [ ] Company about page
+-   [ ] Add new employee into system
+-   [ ] Add/edit employee management
+-   [ ] Add/edit notices and announcements
+-   [ ] Add/edit resources and training materials
+-   [ ] View leave history (admin panel)
+-   [ ] Expense approval workflow
+
+#### User Features
+
+-   [ ] Settings and preferences
+-   [ ] Light/Dark theme toggle
+-   [ ] Add due tasks functionality
+-   [ ] Meeting schedule management
+-   [ ] Expense submission
+-   [ ] Expense history and tracking
 -   [ ] File upload functionality
 -   [ ] Location-based attendance tracking
--   [ ] Search functionality implementation
+
+#### Calendar & Scheduling
+
+-   [ ] Monthly attendance calendar view
+-   [ ] Corporate event calendar
+-   [ ] Meeting reminders and notifications
 
 ## 🎓 Academic Project
 
-This project was developed as part of a Mobile Application Design course lab project to demonstrate:
+This project was developed as part of a Mobile Application Design course to demonstrate proficiency in:
 
--   Modern Flutter development practices
--   State management with GetX
--   Responsive UI/UX design
--   PDF generation and file handling
--   Navigation and routing
--   Custom widget creation
--   Clean code architecture
+-   **Modern Flutter Development:** Implementing cross-platform mobile applications using industry-standard practices
+-   **State Management:** Utilizing GetX for efficient reactive state management and dependency injection
+-   **Responsive UI/UX Design:** Creating adaptive interfaces that work across different screen sizes and orientations
+-   **Document Processing:** Implementing PDF generation and file handling capabilities
+-   **Navigation Patterns:** Implementing complex routing and navigation flows
+-   **Component Architecture:** Developing reusable, modular widget components
+-   **Code Quality:** Maintaining clean, maintainable, and well-documented code architecture
+-   **API Integration:** Demonstrating integration with external services (Gemini AI)
+-   **Security Best Practices:** Implementing environment variable management for sensitive data
 
-<!-- ## 👤 Author -->
+## 👥 Contributors
 
-<!-- **Saimur Rahman** -->
+**Md Saimur Rahman Robin** - Lead Developer
 
-<!-- -   GitHub: [@newbie-saimur](https://github.com/newbie-saimur) -->
-<!-- -   Project: [smart-employee-management-app-flutter](https://github.com/newbie-saimur/smart-employee-management-app-flutter) -->
+-   GitHub: [@newbie-saimur](https://github.com/newbie-saimur)
+-   Role: Architecture Design, Full-stack Development, Documentation
+
+**Farhana Ali** - Co-Developer
+
+-   GitHub: [@ali-farhana](https://github.com/ali-farhana)
+-   Role: UI/UX Co-Designer, Frontend Development
+
+**Eyamin Hossain** - Team Member
+
+-   GitHub: [@eyamin-hossain](https://github.com/hossainy068-dot)
+-   Role: Project Observer, Documentation Review
 
 ---
+
+**Project Repository: [smart-employee-management-app-flutter](https://github.com/newbie-saimur/smart-employee-management-app-flutter)**
 
 _Last Updated: December 2025_
